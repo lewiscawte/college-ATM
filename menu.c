@@ -1,5 +1,6 @@
 // Function to display a menu of options and allow user to access other parts of the system.
 // @author ??? <??.??13@smail.bhasvic.ac.uk>
+// @author Lewis Cawte <lewis@lewiscawte.me>
 #include<stdio.h>
 #include<stdlib.h>
 
