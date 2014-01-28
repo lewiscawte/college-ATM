@@ -4,9 +4,8 @@
 #include<stdio.h>
 #include<string.h>
 
-char pin[5]="";
+char pin[5]="", custName[41]="", cardNumber[17]="";
 float balance=0;
-char custName[41]="", cardNumber[17]="";
 	
 int main() {
     // A function for testing.
@@ -23,7 +22,7 @@ int main() {
     return 0;
 }
 
-int getCustData() {
+void getCustData() {
 	// Function to fetch data from file and split into the required variables.
     FILE *custData;
 	custData = fopen("N:\\testcustdata.txt", "r");
@@ -35,7 +34,7 @@ int getCustData() {
 	return 0;
 }
 
-int writeCustData() {
+void writeCustData() {
 	// Function to write the contents of the key variables back to a text file.
 	FILE *custData;
 	custData = fopen("N:\\testcustwritedata.txt", "w");
