@@ -5,7 +5,7 @@
 #include<stdlib.h>
 
 int menu() {
-	int exit = 0; // Exit loop (when set to 1, program exits)
+	int exit = 0, option = 0; // Exit loop (when set to 1, program exits)
 	
 	while( exit == 0 ) {
 		printf("Welcome to the Brokemans ATM\n-------------------------");
@@ -22,12 +22,14 @@ int menu() {
 		printf("\t8. Exit\n");
 		// END: Menu Options
 		
-		printf("Select an option: ");
-		fflush(stdin);
-		scanf("%d", &option);
-		if( option<1 || option>8 ) {
-			printf("Please enter a number between 1 and 8\n"); 
-		}
+		do {
+			printf("Select an option: ");
+			fflush(stdin);
+			scanf("%d", &option);
+			if( option<1 || option>8 ) {
+				printf("Please enter a number between 1 and 8\n"); 
+			}
+		} while( option < 1 || option > 4 );
 		
 		switch(option) {
 			case 1:
