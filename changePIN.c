@@ -5,14 +5,14 @@
 #include<string.h>
 
 int changePIN() {
-    char newPin[5]=""; // Sets a string for a new PIN to be used for checking.
+	char newPin[5]=""; // Sets a string for a new PIN to be used for checking.
 
-    printf("Please enter new PIN");
-    gets(newPin);
+	printf("Please enter new PIN");
+	gets(newPin);
 
 	// @TODO: Validate new PIN, to check four digits, and not the same as old PIN.
-    strcpy(pin, newPin);
+	strcpy(pin, newPin);
 
-    system("PAUSE");
-    return 0;
+	system("PAUSE");
+	return 0;
 }
