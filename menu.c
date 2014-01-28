@@ -5,7 +5,7 @@
 
 int menu() {
     printf("Welcome to the Brokemans ATM\n-------------------------");
-    printf("Tip of the Day: Remember if you want to see your money spent in a flash let your wife know your card details!\n\n");
+    printf("Tip of the Day: Remember - If you want to see your money spent in a flash, let your wife know your card details!\n\n");
     printf("What would you like to do?\n");
     printf("\t1. Balance\n");
     printf("\t2. Withdrawal\n");
