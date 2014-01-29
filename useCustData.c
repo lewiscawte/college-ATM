@@ -25,7 +25,7 @@ int main() {
 void getCustData() {
 	// Function to fetch data from file and split into the required variables.
 	FILE *custData;
-	custData = fopen("N:\\testcustdata.txt", "r");
+	custData = fopen(fileLocation, "r");
 	
 	fflush(stdin);
 	fscanf(custData, "%s %s %s %f", custName, cardNumber, pin, &balance);
