@@ -55,7 +55,7 @@ int menu() {
 				orderStatement();
 			break;
 			case 7:
-				orderChequebook;
+				orderChequebook();
 			break;
 			case 8:
 				exit = 1;
