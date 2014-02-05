@@ -4,15 +4,17 @@
 #include<stdlib.h>
 #include<string.h>
 
-int changePIN() {
+void changePIN() {
 	char newPin[5]=""; // Sets a string for a new PIN to be used for checking.
 
 	printf("Please enter new PIN");
+	fflush(stdin);
 	gets(newPin);
 
 	// @TODO: Validate new PIN, to check four digits, and not the same as old PIN.
 	strcpy(pin, newPin);
+	printf("Input PIN was: %s", newPin);
+	printf("PIN is: %s", pin);
 
 	system("PAUSE");
-	return 0;
 }
