@@ -13,7 +13,11 @@ int main() {
 	// @TODO: User messages, etc.
 	gets(inputAccountNumb);
 	
-	fileLocation = strcat("N:\\", inputAccountNumb, ".txt" );
+	strcat(fileLocation, "N:\\");
+	strcat(fileLocation, inputAccountNumb );
+	strcat(fileLocation, ".txt"); 
+	
+	
 	
 	getCustData();
 	// If can't open file (non-existant), re-prompt.
