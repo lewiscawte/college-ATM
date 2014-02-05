@@ -37,7 +37,7 @@ void getCustData() {
 void writeCustData() {
 	// Function to write the contents of the key variables back to a text file.
 	FILE *custData;
-	custData = fopen("N:\\testcustwritedata.txt", "w");
+	custData = fopen(fileLocation, "w");
 	
 	fprintf(custData, "%s %s %s %.2f", custName, cardNumber, pin, balance);
 	
