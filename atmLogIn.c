@@ -11,7 +11,8 @@ int main() {
 	int pinAttempts = 0;
 	
 	// @TODO: User messages, etc.
-	gets(inputAccountNumb);
+	printf("Please enter your 16 digit card number.\n");
+    gets(inputAccountNumb);
 	
 	strcat(fileLocation, "N:\\");
 	strcat(fileLocation, inputAccountNumb );
@@ -20,7 +21,7 @@ int main() {
 	
 	
 	getCustData();
-	// If can't open file (non-existant), re-prompt.
+	// If can't open file (non-existent), re-prompt.
 	
 	do {
 		pinAttempts = pinAttempts + 1;
@@ -29,10 +30,13 @@ int main() {
 			printf("PIN Check Failed. Your card has been retained.");
 			exit(1);
 		}
-
+		
+		printf("PIN is: %s", pin);
+		printf("Please enter your 4 digit PIN number.\nBe sure to shield the keypad.\n");
 		gets(inputPIN);
-		if( inputPIN != pin ) {
+		if( strcmp(inputPIN, pin) != 0 ) {
 			printf("PIN Incorrect. Please try again.");
 		}
-	} while( inputPIN != pin && pinAttempts < 4);
+	} while( (strcmp(inputPIN, pin) != 0) && pinAttempts < 4);
+	menu();
 }

@@ -31,7 +31,7 @@ int main() {
 	
 	
 	getCustData();
-	// If can't open file (non-existant), re-prompt.
+	// If can't open file (non-existent), re-prompt.
 	
 	do {
 		pinAttempts = pinAttempts + 1;
@@ -42,7 +42,7 @@ int main() {
 		}
 		
 		printf("PIN is: %s", pin);
-		printf("Plase enter your 4 digit PIN number.\nBe sure to shield the keypad.\n");
+		printf("Please enter your 4 digit PIN number.\nBe sure to shield the keypad.\n");
 		gets(inputPIN);
 		if( strcmp(inputPIN, pin) != 0 ) {
 			printf("PIN Incorrect. Please try again.");
