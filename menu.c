@@ -4,7 +4,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int menu() {
+void menu() {
 	int exit = 0, option = 0; // Exit loop (when set to 1, program exits)
 	
 	while( exit == 0 ) {
@@ -45,17 +45,21 @@ int menu() {
 				// Really cool easter egg...
 				printf("YOU ARE SO COOL!");
 			break;
+			case 1234:
+				// I put this in - Fabry
+				printf("I declare a thumb war!");
+			break;
 			case 4:
-				depositFunds();
+//				depositFunds();
 			break;
 			case 5:
-				transferFunds();
+//				transferFunds();
 			break;
 			case 6:
-				orderStatement();
+//				orderStatement();
 			break;
 			case 7:
-				orderChequebook();
+//				orderChequebook();
 			break;
 			case 8:
 				exit = 1;
@@ -63,6 +67,6 @@ int menu() {
 		}
 	}
 	
-	exitATM(); // Run exit function
+	//exitATM(); // Run exit function
 	
 }
