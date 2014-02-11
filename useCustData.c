@@ -4,7 +4,7 @@
 #include<stdio.h>
 #include<string.h>
 
-char pin[5]="", custName[41]="", cardNumber[17]="";
+char pin[5]="", custName[41]="", cardNumber[17]="", address[121]="";
 float balance=0;
 	
 int main() {
@@ -29,6 +29,7 @@ void getCustData() {
 	
 	fflush(stdin);
 	fscanf(custData, "%s %s %s %f", custName, cardNumber, pin, &balance);
+	fscanf(custData, "%s", address );
 	
 	fclose(custData);
 	return 0;

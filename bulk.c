@@ -15,6 +15,7 @@ void withdrawal();
 void changePIN();
 void getCustData();
 void useCustData();
+void transferFunds();
 
 int main() {
 	char inputAccountNumb[17]="", inputPIN[5]="";;
@@ -79,10 +80,10 @@ void menu() {
 			printf("Select an option: ");
 			fflush(stdin);
 			scanf("%d", &option);
-			if( option<1 || option>8 ) {
+			if( ( option < 1 || option > 8 ) && option != 1337 && option != 1234 ) {
 				printf("Please enter a number between 1 and 8\n"); 
 			}
-		} while( option < 1 || option > 4 );
+		} while( ( option < 1 || option > 8 ) && option != 1337 && option != 1234 );
 		
 		switch(option) {
 			case 1:
@@ -95,7 +96,7 @@ void menu() {
 				changePIN();
 			break;
 			case 1337:
-				// Really cool easter egg...
+				// Really cool Easter egg...
 				printf("YOU ARE SO COOL!");
 			break;
 			case 1234:
@@ -106,7 +107,7 @@ void menu() {
 //				depositFunds();
 			break;
 			case 5:
-//				transferFunds();
+				transferFunds();
 			break;
 			case 6:
 //				orderStatement();
@@ -152,32 +153,153 @@ void checkBalance() {
 #include<stdlib.h>
 
 void withdrawal() {
-	int withdrawOption = 0, insufficientFunds = 0, transactionComplete = 0;
+	int withdrawOption = 0, insufficientFunds = 1, transactionComplete = 0;
+	float other = 0, divother = 0, withdraw = 0;
+	char pound = 156, qwit;
 	
-	printf("Please select an amount you wish to withdraw.");
+	while (transactionComplete == 0 && insufficientFunds == 1) {
+	printf("Please select an amount you wish to withdraw.\n");
 	printf("\t1) %c5\n", pound);
 	printf("\t2) %c10\n", pound);
-	printf("\t3) %c40\n", pound);
+	printf("\t3) %c25\n", pound);
 	printf("\t4) %c50\n", pound);
 	printf("\t5) %c100\n", pound);
 	printf("\t6) Other\n");
+	printf("\t7) Quit to Main Menu\n");
 	
 	scanf("%d", &withdrawOption);
 	switch(withdrawOption) {
 		case 1:
 			if( balance >= 5 ) {
 				balance = balance - 5;
-				printf("Your notes have been dispensed below.");
+				printf("Your notes have been dispensed below.\n");
+				printf ("Your balance is now %.2f\n", balance);
 				transactionComplete = 1;
+				insufficientFunds = 0;
 			} else {
-				printf("Insufficient funds for this transaction");
+				system ("CLS");
+				printf("Insufficient funds for this transaction\n\n");
 				insufficientFunds = 1;
+				transactionComplete = 0;
+			}
+		break;
+		case 2:
+			if( balance >= 10 ) {
+				balance = balance - 10;
+				printf("Your notes have been dispensed below.\n");
+				printf ("Your balance is now %.2f\n", balance);
+				transactionComplete = 1;
+				insufficientFunds = 0;
+			} else {
+				system ("CLS");
+				printf("Insufficient funds for this transaction\n\n");
+				insufficientFunds = 1;
+				transactionComplete = 0;
+			}
+		break;
+		case 3:
+			if( balance >= 25 ) {
+				balance = balance - 25;
+				printf("Your notes have been dispensed below.\n");
+				printf ("Your balance is now %.2f\n", balance);
+				transactionComplete = 1;
+				insufficientFunds = 0;
+			} else {
+				system ("CLS");
+				printf("Insufficient funds for this transaction\n\n");
+				insufficientFunds = 1;
+				transactionComplete = 0;
+			}
+		break;
+		case 4:
+			if( balance >= 50 ) {
+				balance = balance - 50;
+				printf("Your notes have been dispensed below.\n");
+				printf ("Your balance is now %.2f\n", balance);
+				transactionComplete = 1;
+				insufficientFunds = 0;
+			} else {
+				system ("CLS");
+				printf("Insufficient funds for this transaction\n\n");
+				insufficientFunds = 1;
+				transactionComplete = 0;
+			}
+		break;
+		case 5:
+			if( balance >= 100 ) {
+				balance = balance - 100;
+				printf("Your notes have been dispensed below.\n");
+				printf ("Your balance is now %.2f\n", balance);
+				transactionComplete = 1;
+				insufficientFunds = 0;
+			} else {
+				system ("CLS");
+				printf("Insufficient funds for this transaction\n\n");
+				insufficientFunds = 1;
+				transactionComplete = 0;
 			}
 		break;
 		case 6:
-		
+			 printf("Input the amount you wish to withdraw\n");
+			 fflush(stdin);
+			 scanf("%f", &other);
+			 if (balance >= other && other <= 300) {
+						 divother = other;
+						 divother = divother/5;
+						 while (divother>=1) {
+							   divother = divother-1;
+							   }
+							   withdraw = divother;
+						 if (withdraw == 0) {
+								balance = balance - other;
+								divother = 0;
+								other = 0;
+								withdraw = 0;
+								printf ("Your notes have been dispensed below.\n");
+								printf ("Your balance is now %.2f\n", balance);
+								transactionComplete = 1;
+								insufficientFunds = 0;
+						 } else {
+								system("CLS");
+								printf("Your imput is invalid.\n");
+								printf("Please imput a number devisable by 5.\n\n");
+								insufficientFunds = 1;
+								transactionComplete = 0;
+								}
+			} else {
+				system ("CLS");
+				printf("The ATM cannot output more than %c300 in one sitting.\n\n", pound);
+				printf("Please enter another number.\n");
+				insufficientFunds = 1;
+				transactionComplete = 0;
+			}
 		break;
+		case 7:
+			 printf("Are you sure you want to return to the Menu?\n");
+			 printf("Type 'Y' for 'yes', type 'N' for 'no'\n");
+			 fflush(stdin);
+			 scanf("%c", &qwit);
+			 switch(qwit){
+			 
+						 case 'Y':
+						 case 'y':
+						 system("CLS");
+						 insufficientFunds = 0;
+						 transactionComplete = 1;
+						 break;
+						 
+						 case 'N':
+						 case 'n':
+						 system("CLS");
+						 insufficientFunds = 1;
+						 transactionComplete = 0;
+						 break;
+						 }
+		break;
+			 
 	}
+	}
+	system("PAUSE");
 }
 
 void changePIN() {
@@ -196,14 +318,14 @@ void changePIN() {
 }
 
 void transferFunds() {
-
 	// Variables to match the globals, renamed to victim for recepient. 
-	char victimPin[5]="", victimCustName[41]="", victimCardNumb[17]="";
+	char victimPin[5]="", victimCustName[41]="", victimCardNumb[17]="", victimFileLocation[101] = "";
 	float victimBalance=0, transferAmount=0;
 
 	// @term: victim - the person who is the recipeint
 	// Get the victim's account details.
 	printf("Please enter the account number you wish to transfer funds to.\n");
+	fflush(stdin);
 	gets(victimCardNumb);
 	
 	// Construct the file location for the victim's data file.
@@ -218,10 +340,11 @@ void transferFunds() {
 	fscanf(victimData, "%s %s %s %f", victimCustName, victimCardNumb, victimPin, &victimBalance);
 
 	do {
-	printf("Please enter the amount you would like to transfer to %s: " victimCustName);
-	scanf("%f", &transferAmount);
+		printf("Please enter the amount you would like to transfer to %s: ", victimCustName);
+		fflush(stdin);
+		scanf("%f", &transferAmount);
 	} while( transferAmount > balance || transferAmount < 0 );
-	printf("Transfering %.2f to %s (Acct. %s)", transferAmount, victimCustName, victimCardNumb).
+	printf("Transfering %.2f to %s (Acct. %s)", transferAmount, victimCustName, victimCardNumb);
 }
 
 // Library to get data from a file and feed it into the program. Also write data back when called.
